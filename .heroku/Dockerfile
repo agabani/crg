@@ -39,6 +39,5 @@ EXPOSE 80
 WORKDIR /home/appuser/app
 
 COPY --chown=appuser:appgroup --from=builder /home/appuser/app/target/x86_64-unknown-linux-musl/release/crg crg
-COPY --chown=appuser:appgroup --from=builder /home/appuser/app/dist/ dist/
 
 CMD [ "sh", "-c", "CRG__HTTP_SERVER__PORT=$PORT ./crg" ]
