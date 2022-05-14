@@ -1,0 +1,13 @@
+.git/
+.github/
+.idea/
+.vscode/
+dist/
+target/
+.dockerignore
+.editorconfig
+.gitattributes
+.gitignore
+.heroku
+*.md
+Dockerfile
