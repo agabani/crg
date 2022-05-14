@@ -1,5 +1,5 @@
 use crate::configuration::Configuration;
-use crate::routes::health;
+use crate::routes::{health, v2};
 use crate::tracing::TraceErrorExt;
 use actix_web::dev::Server;
 use actix_web::{web, App, HttpServer};
@@ -30,6 +30,7 @@ pub fn run(overrides: &[(&str, &str)]) -> (Server, u16, Configuration) {
         App::new()
             .app_data(configuration_data.clone())
             .service(web::scope("/health").configure(health::config))
+            .service(web::scope("/v2").configure(v2::config))
     })
     .listen(listener)
     .trace_err()
